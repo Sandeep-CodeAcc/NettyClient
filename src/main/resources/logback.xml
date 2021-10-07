@@ -1,0 +1,16 @@
+<configuration>
+
+    <!-- Add the custom appender -->
+    <!-- <appender name="TASK_LOG" class="com.sap.it.task.log.appender.TaskLogAppender"/> -->
+    
+    <appender name="STDOUT-LOCAL" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%X{correlation.id}|%X{tenant.name}>>%d{HH:mm:Ss.SSS} [%thread]%-5level -%msg%n</pattern>
+        </encoder>
+     </appender>
+
+    <root level="ALL">
+        <appender-ref ref="STDOUT-LOCAL" />
+        <!-- <appender-ref ref="TASK_LOG" /> -->
+    </root>
+</configuration>
